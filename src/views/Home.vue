@@ -1,19 +1,22 @@
 <template>
-  <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <questionComp />
+  <div class="home" :style="{width: newWidth}">
+    <questionWrapper />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import questionComp from '@/components/question-comp.vue'
+import questionWrapper from '@/components/question-wrapper.vue'
 
 export default {
   name: 'home',
   components: {
-    questionComp
+    questionWrapper
+  },
+  data () {
+    return {
+      newWidth: window.innerWidth * 2
+    }
   }
 }
 </script>
@@ -25,5 +28,9 @@ sm, small: 600px or larger
 md, medium: 960px or larger
 lg, large: 1280px or larger
 xl, extra-large: 1920px or larger */
+
+body {
+  margin: 0px;
+}
 
 </style>
