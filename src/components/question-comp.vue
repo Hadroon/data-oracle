@@ -1,12 +1,14 @@
 <template>
-  <div class="questionComp" :style="{'width': windowWidth + 'px', 'height': windowHeight + 'px' }">
-  <div :style="{'background': randomColor()}">
-    <img class="questipnPic" :src="'/img/' + question.picture" alt="">
-  </div>
-  <div :style="{'background': randomColor()}">
-  {{question.question}}
-<button @click="turnPage">go to second</button>
-  </div>
+  <div :style="{'width': windowWidth + 'px', 'height': windowHeight + 'px' }">
+    <div class="questionComp" :style="{'width': windowWidth + 'px', 'height': windowHeight + 'px' }">
+      <div :style="{'background': randomColor()}">
+        <img class="questipnPic" :src="'/img/' + question.picture" alt="">
+      </div>
+      <div :style="{'background': randomColor()}">
+        {{question.question}}
+        <button @click="turnPage">go to second</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,7 +39,7 @@ export default {
 <style>
 
 .questionComp {
-  position: relative;
+  /* position: relative; */
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
@@ -45,7 +47,8 @@ export default {
 
 .questipnPic {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-height: 100%;
   object-fit: cover;
 }
 

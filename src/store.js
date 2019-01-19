@@ -24,7 +24,7 @@ export default new Vuex.Store({
           'kabát',
           'pulcsi'
         ],
-        picture: 'valami.jpg'
+        picture: 'prophecy.jpg'
       },
       {
         id: 2,
@@ -34,7 +34,7 @@ export default new Vuex.Store({
           'kabát',
           'pulcsi'
         ],
-        picture: 'valami.jpg'
+        picture: 'third.jpg'
       }
     ]
 
