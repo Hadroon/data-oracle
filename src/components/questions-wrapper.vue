@@ -1,24 +1,28 @@
 <template>
 <div class="question-wrapper" :style="{'width': windowWidth + 'px', 'top': top + 'px' }">
 
-  <div class="float-left" :style="{'width': windowWidth + 'px',
+  <!-- <div :style="{'width': windowWidth + 'px',
    'height': windowHeight + 'px' }" >
+    {{questions}}
     <button @click="turnPage">go to second</button>
   </div>
 
-  <div class="float-left" :style="{'width': windowWidth + 'px',
+  <div :style="{'width': windowWidth + 'px',
    'height': windowHeight +'px' }" >
     <button @click="turnPage">go to third</button>
   </div>
 
-  <div class="float-left" :style="{'width': windowWidth + 'px',
+  <div :style="{'width': windowWidth + 'px',
    'height': windowHeight + 'px' }" >third
-  </div>
+  </div> -->
+
+  <question-comp v-for="question in questions" :key="question.id" v-bind="{ question, windowWidth, windowHeight}" />
 
 </div>
 </template>
 
 <script>
+import questionComp from '@/components/question-comp.vue'
 
 // get the datas from store
 // store answers
@@ -27,6 +31,9 @@
 
 export default {
   name: 'questions-wrapper',
+  components: {
+    questionComp
+  },
   data () {
     return {
       windowWidth: window.innerWidth,
@@ -34,18 +41,14 @@ export default {
       top: 0
     }
   },
-  computed: {
-    innerWidth: function () {
-      let width = window.innerWidth / 2
-      return width
-    },
-    maxWidth: function () {
-      return (this.windowWidth) + 'px'
-    }
-  },
   methods: {
     turnPage: function () {
       this.top -= this.windowHeight
+    }
+  },
+  computed: {
+    questions () {
+      return this.$store.state.questions
     }
   }
 }
