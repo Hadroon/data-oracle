@@ -1,17 +1,17 @@
 <template>
   <div class="home" :style="{width: newWidth}">
-    <questionWrapper />
+    <questionsWrapper />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import questionWrapper from '@/components/question-wrapper.vue'
+import questionsWrapper from '@/components/questions-wrapper.vue'
 
 export default {
   name: 'home',
   components: {
-    questionWrapper
+    questionsWrapper
   },
   data () {
     return {

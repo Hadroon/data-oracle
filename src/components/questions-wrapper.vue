@@ -1,47 +1,61 @@
 <template>
-  <div>
+<div class="question-wrapper" :style="{'width': windowWidth + 'px', 'top': top + 'px' }">
 
-    <!-- <transition name="fade">
-      <div v-if="show">
-      <button v-on:click="show = !show">
-        Toggle
-      </button>
-        <p>hello</p>
-        <p>
-          Hello from mainView :)
-        </p>
-        <p>
-          {{this.$store.state.questions[0].question}}
-        </p>
-      </div>
-    </transition> -->
-
+  <div class="float-left" :style="{'width': windowWidth + 'px',
+   'height': windowHeight + 'px' }" >
+    <button @click="turnPage">go to second</button>
   </div>
+
+  <div class="float-left" :style="{'width': windowWidth + 'px',
+   'height': windowHeight +'px' }" >
+    <button @click="turnPage">go to third</button>
+  </div>
+
+  <div class="float-left" :style="{'width': windowWidth + 'px',
+   'height': windowHeight + 'px' }" >third
+  </div>
+
+</div>
 </template>
 
 <script>
+
+// get the datas from store
+// store answers
+// when answer a question animate to the next one
+// when finshed send to the server
+
 export default {
   name: 'questions-wrapper',
   data () {
     return {
-      show: true
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight,
+      top: 0
+    }
+  },
+  computed: {
+    innerWidth: function () {
+      let width = window.innerWidth / 2
+      return width
+    },
+    maxWidth: function () {
+      return (this.windowWidth) + 'px'
     }
   },
   methods: {
-    toggleOne: function () {
-
+    turnPage: function () {
+      this.top -= this.windowHeight
     }
   }
-
 }
 </script>
 
-<style>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+<style scoped>
+
+.question-wrapper {
+  position: relative;
+  transition: 1s;
 }
 
 </style>
