@@ -15,7 +15,7 @@ export default {
   },
   data () {
     return {
-      newWidth: window.innerWidth * 2
+      newWidth: window.innerWidth
     }
   }
 }
@@ -29,8 +29,10 @@ md, medium: 960px or larger
 lg, large: 1280px or larger
 xl, extra-large: 1920px or larger */
 
-body {
-  margin: 0px;
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden
 }
 
 </style>

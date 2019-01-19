@@ -1,19 +1,23 @@
 <template>
-<div class="question-wrapper" :style="{'width': maxWidth }">
+<div class="question-wrapper" :style="{'width': windowWidth + 'px', 'top': top + 'px' }">
+
   <div class="float-left" :style="{'width': windowWidth + 'px',
    'background-color': red,
    'height': windowHeight + 'px' }" >
     <p>{{position}}</p>
     <button @click="turnPage">go to second</button>
-   </div>
+  </div>
+
   <div class="float-left" :style="{'width': windowWidth + 'px',
    'background-color': green,
-   'height': windowHeight }" >
+   'height': windowHeight +'px' }" >
     <button @click="turnPage">go to third</button>
-   </div>
+  </div>
+
   <div class="float-left" :style="{'width': windowWidth + 'px',
    'background-color': yellow,
-   'height': windowHeight }" >third</div>
+   'height': windowHeight + 'px' }" >third
+  </div>
 
 </div>
 </template>
@@ -31,6 +35,7 @@ export default {
     return {
       windowWidth: window.innerWidth,
       windowHeight: window.innerHeight,
+      top: 0,
       red: 'red',
       green: 'green',
       yellow: 'yellow',
@@ -45,7 +50,7 @@ export default {
       return width
     },
     maxWidth: function () {
-      return (this.windowWidth * 4) + 'px'
+      return (this.windowWidth) + 'px'
     }
   },
   methods: {
@@ -57,7 +62,7 @@ export default {
       }
     },
     turnPage: function () {
-      this.position = this.position - windowWidth
+      this.top -= this.windowHeight
     }
   }
 }
@@ -67,13 +72,14 @@ export default {
 
 @media only screen and (max-width: 600px) {
 
-.question-wrapper {
-  position: relative;
-}
+  .question-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
 
-.float-left {
-  float: left;
-}
+  .float-left {
+    float: left;
+  }
 
 }
 
