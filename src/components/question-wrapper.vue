@@ -74,12 +74,17 @@ export default {
 
   .question-wrapper {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
+    transition: 1s;
   }
 
   .float-left {
     float: left;
   }
+/*
+  .animate {
+    transition: 1s;
+  } */
 
 }
 
