@@ -19,19 +19,24 @@ export default {
   props: [
     'question',
     'windowWidth',
-    'windowHeight'
+    'windowHeight',
+    'questionsLength',
+    'questionIndex'
   ],
+  data () {
+    return {
+      currentIndex: 0
+    }
+  },
   methods: {
     turnPage: function () {
-      this.$parent.top -= this.windowHeight
-    },
-    randomColor: function getRandomColor () {
-      var letters = '0123456789ABCDEF'
-      var color = '#'
-      for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)]
+      console.log(this.questionIndex + 1)
+      console.log(this.questionsLength)
+      if (this.questionIndex + 1 === this.questionsLength) {
+        // start process
+        return
       }
-      return color
+      this.$parent.top -= this.windowHeight
     }
   }
 }
