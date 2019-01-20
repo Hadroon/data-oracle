@@ -14,23 +14,7 @@
 
 <script>
 export default {
-  name: 'question',
-  props: [
-    'question',
-    'windowWidth',
-    'windowHeight',
-    'questionsLength',
-    'questionIndex'
-  ],
-  methods: {
-    turnPage: function (answerindex) {
-      if (this.questionIndex + 1 === this.questionsLength) {
-        this.$parent.canShowResult = true
-        return
-      }
-      this.$parent.top -= this.windowHeight
-    }
-  }
+  name: 'home'
 }
 </script>
 

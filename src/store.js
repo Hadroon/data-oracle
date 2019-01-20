@@ -22,7 +22,8 @@ export default new Vuex.Store({
         answers: [
           'valami',
           'kabát',
-          'pulcsi'
+          'pulcsi',
+          'akárhány válasz lehet'
         ],
         picture: 'prophecy.jpg'
       },
